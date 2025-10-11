@@ -1,14 +1,14 @@
 ---
 
-title: 'Building Forms in Camunda Modeler'
+title: 'Building Forms in Fluxnova Modeler'
 weight: 25
 
 menu:
   main:
     name: "Forms"
-    identifier: "camunda-modeler-forms"
+    identifier: "fluxnova-modeler-forms"
     parent: "modeler"
-    pre: "How to build Camunda Forms using the Camunda Modeler."
+    pre: "How to build Fluxnova Forms using the Fluxnova Modeler."
 
 ---
 

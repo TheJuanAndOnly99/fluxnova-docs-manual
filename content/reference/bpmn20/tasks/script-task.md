@@ -41,7 +41,7 @@ For general information about scripting in the process engine, please see the [S
 
 {{< note title="Supported Script Languages" class="info" >}}
 
-Camunda 7 should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="{{< ref "/introduction/third-party-libraries/_index.md#process-engine" >}}">Third Party Dependencies</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
+Fluxnova should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="{{< ref "/introduction/third-party-libraries/_index.md#process-engine" >}}">Third Party Dependencies</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
 
 {{< /note >}}
 
@@ -107,7 +107,7 @@ Note that when you use <code>camunda:resultVariable</code> in a multi-instance c
 {{< /note >}}
 
 
-# Camunda Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
@@ -140,4 +140,3 @@ Note that when you use <code>camunda:resultVariable</code> in a multi-instance c
 
 [script-source]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [user-guide]: {{< ref "/user-guide/_index.md" >}}
-[autostore-variables]: {{< ref "/update/minor/71-to-72/_index.md#script-variable-storing" >}}

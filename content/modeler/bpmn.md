@@ -1,12 +1,12 @@
 ---
 
-title: 'Modeling BPMN in Camunda Modeler'
+title: 'Modeling BPMN in Fluxnova Modeler'
 weight: 10
 
 menu:
   main:
     name: "BPMN"
-    identifier: "camunda-modeler-bpmn"
+    identifier: "fluxnova-modeler-bpmn"
     parent: "modeler"
     pre: "How to model executable BPMN 2.0 process diagrams."
 

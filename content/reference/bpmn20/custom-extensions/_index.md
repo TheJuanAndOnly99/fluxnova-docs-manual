@@ -10,4 +10,4 @@ menu:
 
 ---
 
-Camunda extends BPMN with custom Extension Elements and Attributes.
+Fluxnova extends BPMN with custom Extension Elements and Attributes.

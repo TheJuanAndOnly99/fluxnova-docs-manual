@@ -1,16 +1,17 @@
 ---
 
-title: 'Camunda Modeler'
+title: 'Fluxnova Modeler'
 layout: 'section-list'
 weight: 45
 aliases:
-  - modeler/camunda-modeler
+  - modeler/fluxnova-modeler
 
 menu:
   main:
     name: "Modeler"
     identifier: "modeler"
-    pre: "Desktop Application for modeling BPMN, DMN and CMMN. *Works with Camunda 7.4.0, 7.3.3, 7.2.6 and above.*"
+    parent: "manual"
+    pre: "Desktop Application for modeling BPMN, DMN and CMMN. *Works with Fluxnova.4.0, 7.3.3, 7.2.6 and above.*"
 
 ---
 

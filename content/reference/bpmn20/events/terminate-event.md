@@ -35,7 +35,7 @@ A terminate event is modeled as an end event with an additional definition eleme
 ```
 
 
-# Camunda Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
@@ -62,4 +62,4 @@ A terminate event is modeled as an end event with an additional definition eleme
 
 ## Additional Resources
 
-* [Terminate Events](http://camunda.org/bpmn/reference.html#events-termination) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+* [Terminate Events](http://fluxnova.finos.org/bpmn/reference.html#events-termination) in the [BPMN 2.0 Modeling Reference](http://fluxnova.finos.org/bpmn/reference.html)

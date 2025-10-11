@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda BPMN Extension Attributes'
+title: 'Fluxnova BPMN Extension Attributes'
 weight: 20
 
 menu:
@@ -8,11 +8,11 @@ menu:
     name: "Extension Attributes"
     identifier: "bpmn-extensions-attributes"
     parent: "bpmn-extensions"
-    pre: "Reference of Camunda Extension Attributes for BPMN."
+    pre: "Reference of Fluxnova Extension Attributes for BPMN."
 
 ---
 
-The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/bpmn`.
+The following attributes are extension attributes for the `fluxnova` namespace `http://camunda.org/schema/1.0/bpmn`.
 
 # assignee
 
@@ -25,7 +25,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -75,7 +75,6 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -84,17 +83,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Boundary Event,
       <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
       <a href="{{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
@@ -137,7 +132,6 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -146,18 +140,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Boundary Event,
       <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
       <a href="{{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
@@ -216,7 +206,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.Integer</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -248,7 +238,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -279,7 +269,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -310,7 +300,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -341,7 +331,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -372,7 +362,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -403,7 +393,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -527,7 +517,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -563,7 +553,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g., <code>org.camunda.bpm.MyJavaDelegate</code>
+      Fully qualified Java class name of a class which implements a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g., <code>org.finos.fluxnova.bpm.MyJavaDelegate</code>
     </td>
   </tr>
   <tr>
@@ -594,7 +584,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -628,7 +618,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -695,7 +685,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.Integer</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -727,7 +717,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -758,7 +748,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -789,7 +779,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -825,7 +815,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1034,7 +1024,6 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -1043,18 +1032,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Boundary Event,
       <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
       <a href="{{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
@@ -1078,7 +1063,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1114,7 +1099,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1150,8 +1135,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements the <code>org.camunda.bpm.engine.impl.form.handler.StartFormHandler</code>
-      or <code>org.camunda.bpm.engine.impl.form.handler.TaskFormHandler</code> interface, e.g., <code>org.camunda.bpm.MyUserTaskFormHandler</code>
+      Fully qualified Java class name of a class which implements the <code>org.finos.fluxnova.bpm.engine.impl.form.handler.StartFormHandler</code>
+      or <code>org.finos.fluxnova.bpm.engine.impl.form.handler.TaskFormHandler</code> interface, e.g., <code>org.finos.fluxnova.bpm.MyUserTaskFormHandler</code>
     </td>
   </tr>
   <tr>
@@ -1205,17 +1190,17 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute references a Camunda form definition by its key. See <a href="{{< ref "/user-guide/task-forms/_index.md" >}}">task forms</a> for more information.
+      The attribute references a Fluxnova form definition by its key. See <a href="{{< ref "/user-guide/task-forms/_index.md" >}}">task forms</a> for more information.
     </td>
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
     <td>
-      A <code>java.lang.String</code> or a <code>org.camunda.bpm.engine.delegate.Expression</code> which <a href="{{< ref "/webapps/tasklist/_index.md" >}}">Tasklist</a> can evaluate to display the referenced Camunda Form, e.g., myCamundaFormDefinitionKey or ${formKey}.
+      A <code>java.lang.String</code> or a <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code> which <a href="{{< ref "/webapps/tasklist/_index.md" >}}">Tasklist</a> can evaluate to display the referenced Fluxnova Form, e.g., myFluxnovaFormDefinitionKey or ${formKey}.
     </td>
   </tr>
   <tr>
@@ -1237,7 +1222,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
       <td>
-      The attribute specifies which Camunda form definition version the activity references. If the value is <code>version</code>, the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefversion" >}}">camunda:formRefVersion</a> is required.
+      The attribute specifies which Flowave form definition version the activity references. If the value is <code>version</code>, the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefversion" >}}">camunda:formRefVersion</a> is required.
     </td>
   </tr>
   <tr>
@@ -1269,18 +1254,18 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which Camunda form definition version the activity references if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefbinding" >}}">camunda:formRefBinding</a>
+      The attribute specifies which Flowave form definition version the activity references if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefbinding" >}}">camunda:formRefBinding</a>
       is set to <code>version</code>.
     </td>
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.Integer</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete version of all deployed version numbers of the Camunda form definition as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToReference}</code>
+      A concrete version of all deployed version numbers of the Fluxnova form definition as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToReference}</code>
     </td>
   </tr>
   <tr>
@@ -1396,7 +1381,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td>A number in the range of a Java <code>long</code> value or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td>A number in the range of a Java <code>long</code> value or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1415,7 +1400,6 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -1424,17 +1408,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Process
     </td>
   </tr>
@@ -1482,7 +1462,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1513,7 +1493,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td>A number in the range of a Java <code>long</code> value or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td>A number in the range of a Java <code>long</code> value or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1552,7 +1532,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1663,7 +1643,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>java.lang.String</code> or <code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
@@ -1740,7 +1720,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements the <a href="{{< ref "/user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g., <code>org.camunda.bpm.MyVariableMappingDelegate</code>
+      Fully qualified Java class name of a class which implements the <a href="{{< ref "/user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g., <code>org.finos.fluxnova.bpm.MyVariableMappingDelegate</code>
     </td>
   </tr>
   <tr>
@@ -1767,7 +1747,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td><code>org.finos.fluxnova.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>

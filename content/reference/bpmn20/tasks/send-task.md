@@ -11,18 +11,18 @@ menu:
 
 ---
 
-A Send Task is used to send a message. In Camunda this is done by calling Java code.
+A Send Task is used to send a message. In Fluxnova this is done by calling Java code.
 
 The Send Task has the same behavior as a Service Task.
 
 {{< bpmn-symbol type="send-task" >}}
 
 ```xml
-<sendTask id="sendTask" camunda:class="org.camunda.bpm.MySendTaskDelegate" />
+<sendTask id="sendTask" camunda:class="org.finos.fluxnova.bpm.MySendTaskDelegate" />
 ```
 
 
-# Camunda Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
