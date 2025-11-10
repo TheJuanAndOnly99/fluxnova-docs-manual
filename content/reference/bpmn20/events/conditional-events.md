@@ -46,7 +46,7 @@ For information about EL expressions, see the [Expression Language]({{< ref "/us
 section. A condition is evaluated every time a variable changes, see the [Trigger Conditional Events]({{< relref "#trigger-conditional-events">}}) section for details.
 
 To prevent the continuous evaluation of a condition, the evaluation can be restricted to specific variable changes.
-For that, the Flowave extension attributes `camunda:variableName` and `camunda:variableEvents` can be used.
+For that, the Fluxnova extension attributes `camunda:variableName` and `camunda:variableEvents` can be used.
 
 By default, condition evaluation is triggered by any kind of variable change, i.e., create/update/delete of any variable. `variableName` can be used to restrict that to changes of a specific variable. `variableEvents` can be used to restrict the type of change. It is possible to specify more than one variable change event as a comma separated list.
 The attributes can be used in combination.

@@ -98,7 +98,7 @@ Job priorities can be specified in the BPMN model as well as overridden at runti
 
 ### Priorities in BPMN XML
 
-Job Priorities can be assigned at the process or the activity level. To achieve this the Flowave extension attribute `camunda:jobPriority` can be used.
+Job Priorities can be assigned at the process or the activity level. To achieve this the Fluxnova extension attribute `camunda:jobPriority` can be used.
 
 For specifying the priority, both constant values and [expressions]({{< ref "/user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
