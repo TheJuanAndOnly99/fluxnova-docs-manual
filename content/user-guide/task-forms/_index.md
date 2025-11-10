@@ -101,7 +101,7 @@ Forms can be used on top of the task completion API to render form fields and va
 
 ## Form Reference
 
-With Form References, Flowave Forms provide a flexible way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Flowave Form, you have to specify the Id of the Flowave Form as the `camunda:formRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Flowave Form to reference.
+With Form References, Fluxnova Forms provide a flexible way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Fluxnova Form, you have to specify the Id of the Fluxnova Form as the `camunda:formRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Fluxnova Form to reference.
 
 Valid values are:
 

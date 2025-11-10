@@ -1222,7 +1222,7 @@ The following attributes are extension attributes for the `fluxnova` namespace `
   <tr>
     <th>Description</th>
       <td>
-      The attribute specifies which Flowave form definition version the activity references. If the value is <code>version</code>, the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefversion" >}}">camunda:formRefVersion</a> is required.
+      The attribute specifies which Fluxnova form definition version the activity references. If the value is <code>version</code>, the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefversion" >}}">camunda:formRefVersion</a> is required.
     </td>
   </tr>
   <tr>
@@ -1254,7 +1254,7 @@ The following attributes are extension attributes for the `fluxnova` namespace `
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which Flowave form definition version the activity references if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefbinding" >}}">camunda:formRefBinding</a>
+      The attribute specifies which Fluxnova form definition version the activity references if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefbinding" >}}">camunda:formRefBinding</a>
       is set to <code>version</code>.
     </td>
   </tr>

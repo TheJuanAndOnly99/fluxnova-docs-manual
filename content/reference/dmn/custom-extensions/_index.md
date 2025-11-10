@@ -12,4 +12,4 @@ menu:
 aliases: [reference/dmn11/custom-extensions/]
 ---
 
-Flowave extends DMN with custom Extension Elements and Attributes defined in the `http://camunda.org/schema/1.0/dmn` namespace.
+Fluxnova extends DMN with custom Extension Elements and Attributes defined in the `http://camunda.org/schema/1.0/dmn` namespace.
