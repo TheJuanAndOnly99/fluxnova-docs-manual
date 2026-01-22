@@ -39,6 +39,8 @@ jobs:
             FULL_VERSION=${REF_NAME#v}
           fi
           
+          # Strip 'v' prefix if present
+          FULL_VERSION=${FULL_VERSION#v}
           MINOR_VERSION=$(echo "$FULL_VERSION" | cut -d. -f1,2)
           
           echo "version=${FULL_VERSION}" >> $GITHUB_OUTPUT
@@ -58,8 +60,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          # Publishes to a subfolder (e.g., manual/1.2)
-          destination_dir: manual/${{ steps.get_version.outputs.minor_version }}
+          # Publishes to a subfolder (e.g., manual/1.1.0)
+          destination_dir: manual/${{ steps.get_version.outputs.version }}
           # FIX 3: Essential for multi-version docs! 
           # Without this, the action wipes the entire branch and keeps ONLY this version.
           keep_files: true 
