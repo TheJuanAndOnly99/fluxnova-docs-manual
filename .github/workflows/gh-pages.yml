@@ -10,6 +10,7 @@ on:
   push:
     branches:
       - 'release/*'
+      - 'main'  # Also trigger on main for easier testing
 
 jobs:
   build-and-publish:
@@ -28,6 +29,9 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             FULL_VERSION=${{ github.event.inputs.version }}
+          elif [[ "${{ github.ref_name }}" == "main" ]]; then
+            # Default version for main branch
+            FULL_VERSION="1.0.0"
           else
             # FIX 2: Strip 'release/' prefix if your branch is named 'release/v1.0'
             # Adjust this logic based on your actual branch naming convention
