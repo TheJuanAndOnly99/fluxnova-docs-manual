@@ -1,0 +1,64 @@
+name: Release and Publish Documentation
+
+on:
+  # FIX 1: Defined the input so the script can access it
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., v1.2.0)'
+        required: true
+  push:
+    branches:
+      - 'release/*'
+
+jobs:
+  build-and-publish:
+    name: Build and Publish Documentation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push to the gh-pages branch
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get version
+        id: get_version
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            FULL_VERSION=${{ github.event.inputs.version }}
+          else
+            # FIX 2: Strip 'release/' prefix if your branch is named 'release/v1.0'
+            # Adjust this logic based on your actual branch naming convention
+            REF_NAME=${GITHUB_REF_NAME#release/} 
+            FULL_VERSION=${REF_NAME#v}
+          fi
+          
+          MINOR_VERSION=$(echo "$FULL_VERSION" | cut -d. -f1,2)
+          
+          echo "version=${FULL_VERSION}" >> $GITHUB_OUTPUT
+          echo "minor_version=${MINOR_VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.145.0'
+          extended: true
+
+      - name: Build website
+        run: hugo --minify
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # Publishes to a subfolder (e.g., manual/1.2)
+          destination_dir: manual/${{ steps.get_version.outputs.minor_version }}
+          # FIX 3: Essential for multi-version docs! 
+          # Without this, the action wipes the entire branch and keeps ONLY this version.
+          keep_files: true 
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'docs: publish website for ${{ steps.get_version.outputs.version }}'
