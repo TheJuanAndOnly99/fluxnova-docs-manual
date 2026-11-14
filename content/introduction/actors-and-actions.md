@@ -38,87 +38,71 @@ The agentic subprocess plugins (`fluxnova-plugins/agentic-subprocess`) and the M
 
 # Interaction Diagram
 
-The diagram shows the main actors, the components they use and the interfaces between them. Each grouping box is a separate trust boundary (see [Trust Boundaries](#trust-boundaries)). Arrow labels name the interface used. Dotted arrows are identity and deployment flows.
+The diagram shows the main actors, the components they use and the interfaces between them. Each grouping box is a separate trust boundary (see [Trust Boundaries](#trust-boundaries)). Arrow labels name the interface used, and dotted arrows are authentication flows. The *engine host* is the embedding application, Fluxnova Run or a Spring Boot application. *Engine plugins* also include the backward compatibility plugin. The build and release pipeline is not shown; see [External Actors](#external-actors). Click the diagram to open it full screen.
 
 ```mermaid
-flowchart LR
+---
+config:
+  flowchart:
+    nodeSpacing: 25
+    rankSpacing: 45
+    padding: 8
+---
+flowchart TB
   subgraph People["People"]
-    designer(["Process designer"])
+    designer(["Designer"])
     developer(["Developer"])
-    operator(["Operator / administrator"])
+    operator(["Operator, admin"])
     taskuser(["Task user"])
   end
 
-  subgraph Desktop["Designer workstation"]
-    modeler["Fluxnova Modeler<br/>+ Modeler plugins"]
+  subgraph Clients["Clients"]
+    modeler["Modeler<br/>+ plugins"]
+    cc["Control Center<br/>UI + BFF"]
+    extclients["REST clients,<br/>task workers"]
+    mcpclient["MCP clients"]
   end
 
-  subgraph Browser["User browser"]
-    webui["Web apps UI<br/>Cockpit, Tasklist, Admin"]
-    ccui["Control Center UI<br/>Angular"]
-  end
-
-  subgraph CC["Control Center server"]
-    bff["Control Center BFF<br/>NestJS"]
-  end
-
-  subgraph Host["Engine host: embedding application, Fluxnova Run or Spring Boot"]
-    rest["REST API<br/>/engine-rest"]
-    webbe["Web apps back end"]
-    engine["Process engine<br/>+ DMN and FEEL engine"]
-    jobs["Job executor"]
-    eplugins["Engine plugins<br/>Connect, Spin, LDAP,<br/>backward compatibility"]
-    mcp["MCP server plugin"]
-    agentic["Agentic subprocess plugins"]
+  subgraph Host["Engine host"]
+    rest["REST API"]
+    webapps["Web apps<br/>Cockpit, Tasklist,<br/>Admin"]
+    mcp["MCP server<br/>plugin"]
+    jobs["Job<br/>executor"]
+    engine["Process engine<br/>DMN + FEEL"]
+    eplugins["Engine plugins<br/>Connect, Spin, LDAP"]
+    agentic["Agentic<br/>plugins"]
   end
 
   subgraph External["External systems"]
-    db[("Relational database")]
-    idp["Identity provider<br/>OIDC or LDAP"]
-    llm["LLM provider"]
-    svc["External services<br/>HTTP or SOAP"]
-    worker["External task workers"]
-    restclient["REST clients"]
-    mcpclient["MCP clients<br/>AI assistants"]
-  end
-
-  subgraph Build["Build and release"]
-    ci["CI and release pipeline<br/>GitHub Actions"]
-    registry["Maven Central, Docker Hub,<br/>GitHub Releases"]
-    k8s["Kubernetes via<br/>fluxnova-deploy Helm charts"]
+    db[("Database")]
+    idp["Identity<br/>provider"]
+    svc["External<br/>services"]
+    llm["LLM<br/>provider"]
   end
 
   designer --> modeler
-  developer -->|"Java API, BPMN, delegate code"| engine
-  operator --> webui
-  operator --> ccui
-  taskuser --> webui
+  operator --> cc
+  operator --> webapps
+  taskuser --> webapps
+  developer -->|"Java API"| engine
 
-  modeler -->|"REST: deploy, start"| rest
-  webui -->|"HTTP, session"| webbe
-  ccui -->|"HTTP, session or OIDC"| bff
-  bff -->|"REST"| rest
-  bff -.->|"OIDC login"| idp
-  restclient -->|"REST, Basic or JWT"| rest
-  worker -->|"REST: fetch and lock, complete"| rest
+  modeler -->|"REST"| rest
+  cc -->|"REST"| rest
+  extclients -->|"REST"| rest
   mcpclient -->|"MCP"| mcp
 
   rest --> engine
-  webbe --> engine
-  mcp -->|"Java API: start process"| engine
+  webapps --> engine
+  mcp --> engine
   jobs --> engine
   engine --> eplugins
+  jobs --> agentic
+
   engine -->|"JDBC"| db
   eplugins -.->|"LDAP"| idp
-  rest -.->|"JWT validation, JWKS"| idp
-  eplugins -->|"Connect: HTTP or SOAP"| svc
-  jobs --> agentic
+  cc -.->|"OIDC"| idp
+  eplugins -->|"HTTP"| svc
   agentic -->|"Spring AI"| llm
-
-  developer --> ci
-  ci --> registry
-  registry --> k8s
-  registry -.-> Host
 ```
 
 
