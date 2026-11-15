@@ -76,70 +76,7 @@ The [fluxnova-deploy](https://github.com/finos/fluxnova-deploy) Helm charts are 
 
 The diagram shows the main actors, the components they use and the interfaces between them. Each grouping box is a separate trust boundary (see [Trust Boundaries](#trust-boundaries)). Arrow labels name the interface used, and dotted arrows are authentication flows. The *engine host* is the embedding application, Fluxnova Run or a Spring Boot application. *Engine plugins* also include the backward compatibility plugin. The build and release pipeline is not shown; see [External Actors](#external-actors).
 
-```mermaid
----
-config:
-  flowchart:
-    nodeSpacing: 25
-    rankSpacing: 45
-    padding: 8
----
-flowchart TB
-  subgraph People["People"]
-    designer(["Designer"])
-    developer(["Developer"])
-    operator(["Operator, admin"])
-    taskuser(["Task user"])
-  end
-
-  subgraph Clients["Clients"]
-    modeler["Modeler<br/>+ plugins"]
-    cc["Control Center<br/>UI + BFF"]
-    extclients["REST clients,<br/>task workers"]
-    mcpclient["MCP clients"]
-  end
-
-  subgraph Host["Engine host"]
-    rest["REST API"]
-    webapps["Web apps<br/>Cockpit, Tasklist,<br/>Admin"]
-    mcp["MCP server<br/>plugin"]
-    jobs["Job<br/>executor"]
-    engine["Process engine<br/>DMN + FEEL"]
-    eplugins["Engine plugins<br/>Connect, Spin, LDAP"]
-    agentic["Agentic<br/>plugins"]
-  end
-
-  subgraph External["External systems"]
-    db[("Database")]
-    idp["Identity<br/>provider"]
-    svc["External<br/>services"]
-    llm["LLM<br/>provider"]
-  end
-
-  designer --> modeler
-  operator --> cc
-  operator --> webapps
-  taskuser --> webapps
-  developer -->|"Java API"| engine
-
-  modeler -->|"REST"| rest
-  cc -->|"REST"| rest
-  extclients -->|"REST"| rest
-  mcpclient -->|"MCP"| mcp
-
-  rest --> engine
-  webapps --> engine
-  mcp --> engine
-  jobs --> engine
-  engine --> eplugins
-  jobs --> agentic
-
-  engine -->|"JDBC"| db
-  eplugins -.->|"LDAP"| idp
-  cc -.->|"OIDC"| idp
-  eplugins -->|"HTTP"| svc
-  agentic -->|"Spring AI"| llm
-```
+{{< img src="../img/actors-and-actions.svg" title="Actors and Actions" >}}
 
 
 # Human Actors

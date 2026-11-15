@@ -1,9 +1,0 @@
-{{- /* Hugo's html/template escapes .Inner, so the Mermaid source reaches the page as text. */ -}}
-<pre class="mermaid">{{ .Inner }}</pre>
-{{- /* Load Mermaid once per page, only on pages that have a mermaid block. */ -}}
-{{- if not (.Page.Store.Get "hasMermaid") }}
-{{- .Page.Store.Set "hasMermaid" true }}
-{{- $mermaid := resources.Get "js/vendor/mermaid.min.js" | fingerprint }}
-<script src="{{ $mermaid.Permalink }}" integrity="{{ $mermaid.Data.Integrity }}"></script>
-<script>mermaid.initialize({ startOnLoad: true, securityLevel: "strict" });</script>
-{{- end }}
