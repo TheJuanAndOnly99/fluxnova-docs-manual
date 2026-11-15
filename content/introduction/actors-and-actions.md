@@ -18,22 +18,63 @@ For engine internals and deployment scenarios see the [Architecture Overview]({{
 
 # Components in Scope
 
-| Component | Repository | Distribution | Release history |
-|---|---|---|---|
-| Process engine, REST API, web applications, engine plugins (Connect, Spin, LDAP identity) | [fluxnova-bpm-platform](https://github.com/finos/fluxnova-bpm-platform) | Maven Central (`org.finos.fluxnova.bpm`), Docker Hub `finos/fluxnova-bpm-platform` | [Releases](https://github.com/finos/fluxnova-bpm-platform/releases) |
-| Control Center | [fluxnova-control-center](https://github.com/finos/fluxnova-control-center) | Docker Hub `finos/fluxnova-control-center` | [Releases](https://github.com/finos/fluxnova-control-center/releases) |
-| Modeler | [fluxnova-modeler](https://github.com/finos/fluxnova-modeler) | Desktop installers on GitHub Releases | [Releases](https://github.com/finos/fluxnova-modeler/releases) |
-| Modeler plugins: code editor, MCP start event | [fluxnova-modeler-plugins](https://github.com/finos/fluxnova-modeler-plugins) | GitHub Releases | [Releases](https://github.com/finos/fluxnova-modeler-plugins/releases) |
-| Engine plugins: backward compatibility, MCP server, agentic subprocess | [fluxnova-plugins](https://github.com/finos/fluxnova-plugins) | Maven Central | [Tags](https://github.com/finos/fluxnova-plugins/tags) |
-| FEEL engine | [fluxnova-feel-scala](https://github.com/finos/fluxnova-feel-scala) | Maven Central (`org.finos.fluxnova.feel`) | [Tags](https://github.com/finos/fluxnova-feel-scala/tags) |
-| Testing framework | [fluxnova-testing-framework](https://github.com/finos/fluxnova-testing-framework) | Maven Central (`org.finos.fluxnova.bpm.test`) | [Tags](https://github.com/finos/fluxnova-testing-framework/tags) |
+<table class="table table-striped">
+  <tr>
+    <th>Component</th>
+    <th>Repository</th>
+    <th>Distribution</th>
+    <th>Release history</th>
+  </tr>
+  <tr>
+    <td>Process engine, REST API, web applications, engine plugins (Connect, Spin, LDAP identity)</td>
+    <td><a href="https://github.com/finos/fluxnova-bpm-platform">fluxnova-bpm-platform</a></td>
+    <td>Maven Central (<code>org.finos.fluxnova.bpm</code>), Docker Hub <code>finos/fluxnova-bpm-platform</code></td>
+    <td><a href="https://github.com/finos/fluxnova-bpm-platform/releases">Releases</a></td>
+  </tr>
+  <tr>
+    <td>Control Center</td>
+    <td><a href="https://github.com/finos/fluxnova-control-center">fluxnova-control-center</a></td>
+    <td>Docker Hub <code>finos/fluxnova-control-center</code></td>
+    <td><a href="https://github.com/finos/fluxnova-control-center/releases">Releases</a></td>
+  </tr>
+  <tr>
+    <td>Modeler</td>
+    <td><a href="https://github.com/finos/fluxnova-modeler">fluxnova-modeler</a></td>
+    <td>Desktop installers on GitHub Releases</td>
+    <td><a href="https://github.com/finos/fluxnova-modeler/releases">Releases</a></td>
+  </tr>
+  <tr>
+    <td>Modeler plugins: code editor, MCP start event</td>
+    <td><a href="https://github.com/finos/fluxnova-modeler-plugins">fluxnova-modeler-plugins</a></td>
+    <td>GitHub Releases</td>
+    <td><a href="https://github.com/finos/fluxnova-modeler-plugins/releases">Releases</a></td>
+  </tr>
+  <tr>
+    <td>Engine plugins: backward compatibility, MCP server, agentic subprocess</td>
+    <td><a href="https://github.com/finos/fluxnova-plugins">fluxnova-plugins</a></td>
+    <td>Maven Central</td>
+    <td><a href="https://github.com/finos/fluxnova-plugins/tags">Tags</a></td>
+  </tr>
+  <tr>
+    <td>FEEL engine</td>
+    <td><a href="https://github.com/finos/fluxnova-feel-scala">fluxnova-feel-scala</a></td>
+    <td>Maven Central (<code>org.finos.fluxnova.feel</code>)</td>
+    <td><a href="https://github.com/finos/fluxnova-feel-scala/tags">Tags</a></td>
+  </tr>
+  <tr>
+    <td>Testing framework</td>
+    <td><a href="https://github.com/finos/fluxnova-testing-framework">fluxnova-testing-framework</a></td>
+    <td>Maven Central (<code>org.finos.fluxnova.bpm.test</code>)</td>
+    <td><a href="https://github.com/finos/fluxnova-testing-framework/tags">Tags</a></td>
+  </tr>
+</table>
 
 The [fluxnova-deploy](https://github.com/finos/fluxnova-deploy) Helm charts are not a released product. Maintainers use them to run the public demo at [demo.fluxnova.finos.org](https://demo.fluxnova.finos.org/).
 
 
 # Interaction Diagram
 
-The diagram shows the main actors, the components they use and the interfaces between them. Each grouping box is a separate trust boundary (see [Trust Boundaries](#trust-boundaries)). Arrow labels name the interface used, and dotted arrows are authentication flows. The *engine host* is the embedding application, Fluxnova Run or a Spring Boot application. *Engine plugins* also include the backward compatibility plugin. The build and release pipeline is not shown; see [External Actors](#external-actors). Click the diagram to open it full screen.
+The diagram shows the main actors, the components they use and the interfaces between them. Each grouping box is a separate trust boundary (see [Trust Boundaries](#trust-boundaries)). Arrow labels name the interface used, and dotted arrows are authentication flows. The *engine host* is the embedding application, Fluxnova Run or a Spring Boot application. *Engine plugins* also include the backward compatibility plugin. The build and release pipeline is not shown; see [External Actors](#external-actors).
 
 ```mermaid
 ---
@@ -103,14 +144,43 @@ flowchart TB
 
 # Human Actors
 
-| Actor | What they do | Main tools |
-|---|---|---|
-| **Process designer** | Models BPMN processes, DMN decisions and forms. Configures technical properties such as scripts, element templates, MCP and agent extension attributes. Deploys models to an engine for testing. | [Modeler]({{< relref "/modeler/_index.md" >}}), Modeler plugins |
-| **Developer** | Embeds the engine in an application or builds a process application. Writes delegate code, scripts, external task workers and tests. Configures engine plugins such as MCP, agentic or LDAP. | [Java API]({{< relref "/user-guide/process-engine/process-engine-api.md" >}}), [REST API]({{< relref "/reference/rest/_index.md" >}}), [External task client]({{< relref "/user-guide/ext-client/_index.md" >}}), [Testing]({{< relref "/user-guide/testing/_index.md" >}}) |
-| **Operator** | Monitors process instances, incidents, jobs, batches and deployments. Repairs failed instances by retrying, modifying, migrating or suspending them. | [Cockpit]({{< relref "/webapps/cockpit/_index.md" >}}), [Control Center]({{< relref "/webapps/control-center/_index.md" >}}) |
-| **Administrator** | Manages users, groups, tenants and authorizations. Configures authentication, the database, the identity provider and the deployment. | [Admin]({{< relref "/webapps/admin/_index.md" >}}), [Authorization Service]({{< relref "/user-guide/process-engine/authorization-service.md" >}}), [Identity Service]({{< relref "/user-guide/process-engine/identity-service.md" >}}) |
-| **Task user** | Claims, works on and completes user tasks, and starts processes they are allowed to start. | [Tasklist]({{< relref "/webapps/tasklist/_index.md" >}}) |
-| **Maintainer / release manager** | Merges changes and triggers release workflows that publish Fluxnova artifacts. | GitHub, GitHub Actions |
+<table class="table table-striped">
+  <tr>
+    <th>Actor</th>
+    <th>What they do</th>
+    <th>Main tools</th>
+  </tr>
+  <tr>
+    <td><strong>Process designer</strong></td>
+    <td>Models BPMN processes, DMN decisions and forms. Configures technical properties such as scripts, element templates, MCP and agent extension attributes. Deploys models to an engine for testing.</td>
+    <td><a href="{{< relref "/modeler/_index.md" >}}">Modeler</a>, Modeler plugins</td>
+  </tr>
+  <tr>
+    <td><strong>Developer</strong></td>
+    <td>Embeds the engine in an application or builds a process application. Writes delegate code, scripts, external task workers and tests. Configures engine plugins such as MCP, agentic or LDAP.</td>
+    <td><a href="{{< relref "/user-guide/process-engine/process-engine-api.md" >}}">Java API</a>, <a href="{{< relref "/reference/rest/_index.md" >}}">REST API</a>, <a href="{{< relref "/user-guide/ext-client/_index.md" >}}">External task client</a>, <a href="{{< relref "/user-guide/testing/_index.md" >}}">Testing</a></td>
+  </tr>
+  <tr>
+    <td><strong>Operator</strong></td>
+    <td>Monitors process instances, incidents, jobs, batches and deployments. Repairs failed instances by retrying, modifying, migrating or suspending them.</td>
+    <td><a href="{{< relref "/webapps/cockpit/_index.md" >}}">Cockpit</a>, <a href="{{< relref "/webapps/control-center/_index.md" >}}">Control Center</a></td>
+  </tr>
+  <tr>
+    <td><strong>Administrator</strong></td>
+    <td>Manages users, groups, tenants and authorizations. Configures authentication, the database, the identity provider and the deployment.</td>
+    <td><a href="{{< relref "/webapps/admin/_index.md" >}}">Admin</a>, <a href="{{< relref "/user-guide/process-engine/authorization-service.md" >}}">Authorization Service</a>, <a href="{{< relref "/user-guide/process-engine/identity-service.md" >}}">Identity Service</a></td>
+  </tr>
+  <tr>
+    <td><strong>Task user</strong></td>
+    <td>Claims, works on and completes user tasks, and starts processes they are allowed to start.</td>
+    <td><a href="{{< relref "/webapps/tasklist/_index.md" >}}">Tasklist</a></td>
+  </tr>
+  <tr>
+    <td><strong>Maintainer / release manager</strong></td>
+    <td>Merges changes and triggers release workflows that publish Fluxnova artifacts.</td>
+    <td>GitHub, GitHub Actions</td>
+  </tr>
+</table>
 
 One person can hold several of these roles. In the engine, roles are modelled as users, groups and [authorizations]({{< relref "/user-guide/process-engine/authorization-service.md" >}}), not as fixed role names. The `fluxnova-admin` group is the built-in [administrator group]({{< relref "/user-guide/process-engine/authorization-service.md#administrators" >}}).
 
@@ -176,30 +246,169 @@ One person can hold several of these roles. In the engine, roles are modelled as
 
 # Actions
 
-| Actor | Action | Component | Interface | Details |
-|---|---|---|---|---|
-| **Process designer** | Create and edit BPMN, DMN and form models, including scripts, MCP and agent attributes | Modeler, Modeler plugins | Desktop UI, local files | [Modeler]({{< relref "/modeler/_index.md" >}}) |
-| **Process designer, developer** | Deploy models and start process instances | Engine | REST (`/deployment/create`, `/process-definition/{id}/start`) from the Modeler or other clients | [REST API]({{< relref "/reference/rest/_index.md" >}}), [Deployments]({{< relref "/user-guide/process-engine/deployments.md" >}}) |
-| **Developer, embedding application** | Embed and configure the engine, register plugins, run all engine services | Engine | Java API, configuration | [Public API]({{< relref "/introduction/public-api.md" >}}), [Bootstrapping]({{< relref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}), [Engine plugins]({{< relref "/user-guide/process-engine/process-engine-plugins.md" >}}) |
-| **Developer** | Provide code that the engine runs (delegates, listeners, scripts, expressions) | Engine | Java SPI, deployment resources | [Delegation Code]({{< relref "/user-guide/process-engine/delegation-code.md" >}}), [Securing Custom Code]({{< relref "/user-guide/process-engine/securing-custom-code.md" >}}) |
-| **Developer** | Test models and scripts against an in-memory engine | Testing framework | Maven, JUnit | [Testing]({{< relref "/user-guide/testing/_index.md" >}}), [framework README](https://github.com/finos/fluxnova-testing-framework/blob/main/README.md) |
-| **Operator** | Search instances, incidents, jobs, batches and deployments; retry, modify, migrate, suspend or delete them | Engine | Cockpit UI or Control Center UI, which call REST | [Cockpit]({{< relref "/webapps/cockpit/_index.md" >}}), [Control Center]({{< relref "/webapps/control-center/_index.md" >}}) |
-| **Administrator** | Manage users, groups, tenants and authorizations | Engine identity and authorization services | Admin UI, REST, Java API | [Authorization Service]({{< relref "/user-guide/process-engine/authorization-service.md" >}}), [Admin]({{< relref "/webapps/admin/_index.md" >}}) |
-| **Administrator** | Configure authentication, TLS, database, LDAP or OIDC, and deployment | Engine host, Control Center | Configuration files, environment variables | [Security Instructions]({{< relref "/user-guide/security.md" >}}), [Multi-Tenancy]({{< relref "/user-guide/process-engine/multi-tenancy.md" >}}) |
-| **Task user** | List, claim, complete and delegate tasks; start processes | Engine | Tasklist UI, REST | [Tasklist]({{< relref "/webapps/tasklist/_index.md" >}}) |
-| **REST client** | Any operation in the REST reference, limited by authentication and authorizations | Engine | REST (Basic, JWT or none) | [REST API]({{< relref "/reference/rest/_index.md" >}}), [Configure Authentication]({{< relref "/reference/rest/overview/authentication.md" >}}) |
-| **Control Center BFF** | Forward UI requests, check user authorizations, select engine and tenant | Engine | REST, `x-fxn-engine` header | [Control Center authentication](https://github.com/finos/fluxnova-control-center/blob/develop/docs/reference/authentication.md) |
-| **External task worker** | Fetch and lock, complete, fail or raise a BPMN error for external tasks | Engine | REST | [External Tasks]({{< relref "/user-guide/process-engine/external-tasks.md" >}}), [External Task Client]({{< relref "/user-guide/ext-client/_index.md" >}}) |
-| **Job executor** | Run timers, asynchronous continuations, batch jobs and agentic turns | Engine | Internal (database job table) | [The Job Executor]({{< relref "/user-guide/process-engine/the-job-executor.md" >}}) |
-| **Engine (Connect, delegates, scripts)** | Call external HTTP or SOAP services | External services | HTTP or SOAP | [Connectors]({{< relref "/user-guide/process-engine/connectors.md" >}}) |
-| **Engine** | Read and write all process state | Database | JDBC | [Database]({{< relref "/user-guide/process-engine/database/_index.md" >}}) |
-| **Engine (LDAP plugin), REST API (JWT)** | Look up users and groups, validate tokens | Identity provider | LDAP, HTTPS (JWKS) | [Identity Service]({{< relref "/user-guide/process-engine/identity-service.md" >}}) |
-| **MCP client** | List tools; call a tool, which starts a process and returns the declared variables | MCP server plugin, Engine | MCP (Spring AI transport) | [MCP server plugin README](https://github.com/finos/fluxnova-plugins/blob/main/agentic/mcp-server-plugin/README.md) |
-| **Agentic subprocess plugins** | Send prompt, context and tool catalogue to an LLM; start the activities it selects | LLM provider, Engine | Spring AI `ChatModel`, Java API | [agentic-subprocess README](https://github.com/finos/fluxnova-plugins/blob/main/agentic-subprocess/README.md) |
-| **DMN engine** | Evaluate FEEL expressions | FEEL engine | Java/Scala library call | [FEEL Engine]({{< relref "/user-guide/dmn-engine/feel/_index.md" >}}) |
-| **Backward compatibility plugin** | Rewrite Camunda references in scripts before they run | Engine scripting | Script preprocessor SPI | [README](https://github.com/finos/fluxnova-plugins/blob/main/fluxnova-backward-compatibility-plugin/README.md) |
-| **Maintainer, CI and release pipeline** | Build, test, sign and publish artifacts | All repositories | GitHub Actions, Maven Central, Docker Hub, GitHub Releases | [Security Guide]({{< relref "/security/_index.md" >}}) |
-| **Maintainer, CI** | Deploy or upgrade the public demo | Demo deployment | GitHub Actions, Helm, kubectl | [fluxnova-deploy](https://github.com/finos/fluxnova-deploy) |
+<table class="table table-striped">
+  <tr>
+    <th>Actor</th>
+    <th>Action</th>
+    <th>Component</th>
+    <th>Interface</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td><strong>Process designer</strong></td>
+    <td>Create and edit BPMN, DMN and form models, including scripts, MCP and agent attributes</td>
+    <td>Modeler, Modeler plugins</td>
+    <td>Desktop UI, local files</td>
+    <td><a href="{{< relref "/modeler/_index.md" >}}">Modeler</a></td>
+  </tr>
+  <tr>
+    <td><strong>Process designer, developer</strong></td>
+    <td>Deploy models and start process instances</td>
+    <td>Engine</td>
+    <td>REST (<code>/deployment/create</code>, <code>/process-definition/{id}/start</code>) from the Modeler or other clients</td>
+    <td><a href="{{< relref "/reference/rest/_index.md" >}}">REST API</a>, <a href="{{< relref "/user-guide/process-engine/deployments.md" >}}">Deployments</a></td>
+  </tr>
+  <tr>
+    <td><strong>Developer, embedding application</strong></td>
+    <td>Embed and configure the engine, register plugins, run all engine services</td>
+    <td>Engine</td>
+    <td>Java API, configuration</td>
+    <td><a href="{{< relref "/introduction/public-api.md" >}}">Public API</a>, <a href="{{< relref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}">Bootstrapping</a>, <a href="{{< relref "/user-guide/process-engine/process-engine-plugins.md" >}}">Engine plugins</a></td>
+  </tr>
+  <tr>
+    <td><strong>Developer</strong></td>
+    <td>Provide code that the engine runs (delegates, listeners, scripts, expressions)</td>
+    <td>Engine</td>
+    <td>Java SPI, deployment resources</td>
+    <td><a href="{{< relref "/user-guide/process-engine/delegation-code.md" >}}">Delegation Code</a>, <a href="{{< relref "/user-guide/process-engine/securing-custom-code.md" >}}">Securing Custom Code</a></td>
+  </tr>
+  <tr>
+    <td><strong>Developer</strong></td>
+    <td>Test models and scripts against an in-memory engine</td>
+    <td>Testing framework</td>
+    <td>Maven, JUnit</td>
+    <td><a href="{{< relref "/user-guide/testing/_index.md" >}}">Testing</a>, <a href="https://github.com/finos/fluxnova-testing-framework/blob/main/README.md">framework README</a></td>
+  </tr>
+  <tr>
+    <td><strong>Operator</strong></td>
+    <td>Search instances, incidents, jobs, batches and deployments; retry, modify, migrate, suspend or delete them</td>
+    <td>Engine</td>
+    <td>Cockpit UI or Control Center UI, which call REST</td>
+    <td><a href="{{< relref "/webapps/cockpit/_index.md" >}}">Cockpit</a>, <a href="{{< relref "/webapps/control-center/_index.md" >}}">Control Center</a></td>
+  </tr>
+  <tr>
+    <td><strong>Administrator</strong></td>
+    <td>Manage users, groups, tenants and authorizations</td>
+    <td>Engine identity and authorization services</td>
+    <td>Admin UI, REST, Java API</td>
+    <td><a href="{{< relref "/user-guide/process-engine/authorization-service.md" >}}">Authorization Service</a>, <a href="{{< relref "/webapps/admin/_index.md" >}}">Admin</a></td>
+  </tr>
+  <tr>
+    <td><strong>Administrator</strong></td>
+    <td>Configure authentication, TLS, database, LDAP or OIDC, and deployment</td>
+    <td>Engine host, Control Center</td>
+    <td>Configuration files, environment variables</td>
+    <td><a href="{{< relref "/user-guide/security.md" >}}">Security Instructions</a>, <a href="{{< relref "/user-guide/process-engine/multi-tenancy.md" >}}">Multi-Tenancy</a></td>
+  </tr>
+  <tr>
+    <td><strong>Task user</strong></td>
+    <td>List, claim, complete and delegate tasks; start processes</td>
+    <td>Engine</td>
+    <td>Tasklist UI, REST</td>
+    <td><a href="{{< relref "/webapps/tasklist/_index.md" >}}">Tasklist</a></td>
+  </tr>
+  <tr>
+    <td><strong>REST client</strong></td>
+    <td>Any operation in the REST reference, limited by authentication and authorizations</td>
+    <td>Engine</td>
+    <td>REST (Basic, JWT or none)</td>
+    <td><a href="{{< relref "/reference/rest/_index.md" >}}">REST API</a>, <a href="{{< relref "/reference/rest/overview/authentication.md" >}}">Configure Authentication</a></td>
+  </tr>
+  <tr>
+    <td><strong>Control Center BFF</strong></td>
+    <td>Forward UI requests, check user authorizations, select engine and tenant</td>
+    <td>Engine</td>
+    <td>REST, <code>x-fxn-engine</code> header</td>
+    <td><a href="https://github.com/finos/fluxnova-control-center/blob/develop/docs/reference/authentication.md">Control Center authentication</a></td>
+  </tr>
+  <tr>
+    <td><strong>External task worker</strong></td>
+    <td>Fetch and lock, complete, fail or raise a BPMN error for external tasks</td>
+    <td>Engine</td>
+    <td>REST</td>
+    <td><a href="{{< relref "/user-guide/process-engine/external-tasks.md" >}}">External Tasks</a>, <a href="{{< relref "/user-guide/ext-client/_index.md" >}}">External Task Client</a></td>
+  </tr>
+  <tr>
+    <td><strong>Job executor</strong></td>
+    <td>Run timers, asynchronous continuations, batch jobs and agentic turns</td>
+    <td>Engine</td>
+    <td>Internal (database job table)</td>
+    <td><a href="{{< relref "/user-guide/process-engine/the-job-executor.md" >}}">The Job Executor</a></td>
+  </tr>
+  <tr>
+    <td><strong>Engine (Connect, delegates, scripts)</strong></td>
+    <td>Call external HTTP or SOAP services</td>
+    <td>External services</td>
+    <td>HTTP or SOAP</td>
+    <td><a href="{{< relref "/user-guide/process-engine/connectors.md" >}}">Connectors</a></td>
+  </tr>
+  <tr>
+    <td><strong>Engine</strong></td>
+    <td>Read and write all process state</td>
+    <td>Database</td>
+    <td>JDBC</td>
+    <td><a href="{{< relref "/user-guide/process-engine/database/_index.md" >}}">Database</a></td>
+  </tr>
+  <tr>
+    <td><strong>Engine (LDAP plugin), REST API (JWT)</strong></td>
+    <td>Look up users and groups, validate tokens</td>
+    <td>Identity provider</td>
+    <td>LDAP, HTTPS (JWKS)</td>
+    <td><a href="{{< relref "/user-guide/process-engine/identity-service.md" >}}">Identity Service</a></td>
+  </tr>
+  <tr>
+    <td><strong>MCP client</strong></td>
+    <td>List tools; call a tool, which starts a process and returns the declared variables</td>
+    <td>MCP server plugin, Engine</td>
+    <td>MCP (Spring AI transport)</td>
+    <td><a href="https://github.com/finos/fluxnova-plugins/blob/main/agentic/mcp-server-plugin/README.md">MCP server plugin README</a></td>
+  </tr>
+  <tr>
+    <td><strong>Agentic subprocess plugins</strong></td>
+    <td>Send prompt, context and tool catalogue to an LLM; start the activities it selects</td>
+    <td>LLM provider, Engine</td>
+    <td>Spring AI <code>ChatModel</code>, Java API</td>
+    <td><a href="https://github.com/finos/fluxnova-plugins/blob/main/agentic-subprocess/README.md">agentic-subprocess README</a></td>
+  </tr>
+  <tr>
+    <td><strong>DMN engine</strong></td>
+    <td>Evaluate FEEL expressions</td>
+    <td>FEEL engine</td>
+    <td>Java/Scala library call</td>
+    <td><a href="{{< relref "/user-guide/dmn-engine/feel/_index.md" >}}">FEEL Engine</a></td>
+  </tr>
+  <tr>
+    <td><strong>Backward compatibility plugin</strong></td>
+    <td>Rewrite Camunda references in scripts before they run</td>
+    <td>Engine scripting</td>
+    <td>Script preprocessor SPI</td>
+    <td><a href="https://github.com/finos/fluxnova-plugins/blob/main/fluxnova-backward-compatibility-plugin/README.md">README</a></td>
+  </tr>
+  <tr>
+    <td><strong>Maintainer, CI and release pipeline</strong></td>
+    <td>Build, test, sign and publish artifacts</td>
+    <td>All repositories</td>
+    <td>GitHub Actions, Maven Central, Docker Hub, GitHub Releases</td>
+    <td><a href="{{< relref "/security/_index.md" >}}">Security Guide</a></td>
+  </tr>
+  <tr>
+    <td><strong>Maintainer, CI</strong></td>
+    <td>Deploy or upgrade the public demo</td>
+    <td>Demo deployment</td>
+    <td>GitHub Actions, Helm, kubectl</td>
+    <td><a href="https://github.com/finos/fluxnova-deploy">fluxnova-deploy</a></td>
+  </tr>
+</table>
 
 
 # Trust Boundaries
